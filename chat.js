@@ -1,5 +1,7 @@
 var frame = getElementById("chat");
 var x = getElementById("coords");
+frame.style.left = "100px";
+frame.style.top = "100";
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
