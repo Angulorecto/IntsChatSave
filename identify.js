@@ -1,4 +1,3 @@
-let ip = 0;
 fetch("https://api.ipify.org/").then(results => results.json()).then(data => sessionStorage.setItem("ip", data));
 let ip = sessionStorage.getItem("ip");
 var frame = getElementById("chat");
