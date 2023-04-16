@@ -1,6 +1,4 @@
-fetch("https://api.ipify.org/").then(results => results.json()).then(data => sessionStorage.setItem("ip", data));
-let ip = sessionStorage.getItem("ip");
-var frame = getElementById("chat");
+var frame = document.getElementById("frame");
 let x = 0;
 let y = 0;
 
@@ -33,6 +31,5 @@ function setFrame() {
     frame.src = "https://deadsimplechat.com/1Cflie9fe";
   };
 };
-getLocation();
-setFrame();
+frame.onload(getLocation).then(setFrame);
 alert("Script has worked");
