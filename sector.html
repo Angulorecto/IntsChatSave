@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="assets/css/particles.css" />
 <link rel="stylesheet" href="assets/css/settings/main.css" />
 <link rel="stylesheet" href="assets/css/nav.css" />
-<script src="assets/js/identify.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6840529569014734"></script>
 <script src="assets/js/main.js"></script>
 <script src="/assets/js/themecontrol.js"></script>
@@ -39,13 +38,46 @@
     </div>
 <body class="classic midnight">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<iframe id="frame" src="https://docs.google.com/forms/d/e/1FAIpQLSd2MIzlNdhOTNyeJejbqwyk6Xm5Aj1oYhIRN12eIV8plGt_Zw/viewform?embedded=true" style="border:none; position:absolute; left:130px; top:92px; z-index:11; width: 90%; height: 90%; scrolling:yes; "></iframe>
+<iframe id="frame" src="https://docs.google.com/forms/d/e/1FAIpQLSd2MIzlNdhOTNyeJejbqwyk6Xm5Aj1oYhIRN12eIV8plGt_Zw/viewform?embedded=true" style="border:none; position:absolute; left:60px; top:92px; z-index:11; width: 90%; height: 90%; scrolling:yes; "></iframe>
 <canvas class="particles-js-canvas-el" style="z-index:10; top:0; left:0; position:absolute; width: 100%; height: 100%;" width="1920" height="942"></canvas>
 <div id="particles-js">
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-  getLocation();
-  setFrame();
+  var frame = document.getElementById("frame");
+  let x = 0;
+  let y = 0;
+  
+  let Schoolx = "";
+  let Schooly = "";
+  function between(num, min, max) {
+    return num >= min && num <= max;
+  };
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    };
+  };
+  
+  function showPosition(position) {
+    x = position.coords.latitude;
+    y = position.coords.longitude;
+  };
+  function setFrame() {
+    // NHMS Check
+    // x check 
+    if (between(x, 42.98967684492836, 42.99068069641312)) {
+      Schoolx = "NHMS";
+    };
+    // y check 
+    if (between(y, -85.5784934721124, -85.58028245713595)) {
+      Schooly = "NHMS";
+    };
+    if (Schoolx == "NHMS" && Schooly == "NHMS") {
+      frame.src = "https://deadsimplechat.com/1Cflie9fe";
+    };
+  };
+  frame.onload(getLocation).then(setFrame);
+  alert("Script has worked");
 </script>
 <script src="assets/js/particles.js"></script>
 <script src="assets/js/settings/settings.js"></script>
